@@ -27,7 +27,7 @@ def first_skim(save):
                     blocknames.append(item)
                 elif item == 'S':
                     start = [i, j]
-                else:
+                elif item == 'E':
                     end = [i, j]
     if '-' in blocknames:
         blocknames.remove('-')
@@ -50,7 +50,6 @@ def getnei(loc, direction):
     global save
     global height
     global width
-    save1 = [i for i in save]
     if direction == 1:
         neiloc = [i-1, j]
     elif direction == 2:
@@ -215,6 +214,8 @@ while not (start[0] == end[0] and start[1] == end[1]):
     op = input('To which direction do you wanna go?')
     if op == 'r':
         initstage(save, height, width)
+    elif op == 'cheat':
+        break
     elif not op in ['1', '2', '3', '4']:
         print('Error!!!')
     elif getnei(start, int(op)) == '':
